@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+service AuthService {
+    rpc create_user(CreateUserRequest) returns (UserResponse) {};
+    rpc get_user(GetUserRequest) returns (UserResponse) {};
+}
+
+message CreateUserRequest {
+    string email = 1;
+    string first_name = 2;
+    string last_name = 3;
+    string password = 4;
+}
+
+
+message GetUserRequest {
+    int32 id = 1;
+}
+
+
+message UserResponse {
+    int32 id = 1;
+    bool is_active = 2;
+    string email = 3;
+    string first_name = 4;
+    string last_name = 5;
+    string password = 6;
+}
+
